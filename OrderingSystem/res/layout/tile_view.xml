@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_horizontal" 
+    android:background="@drawable/poster_goods_bg" 
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@+id/img" 
+        android:layout_width="fill_parent" android:layout_height="wrap_content" 
+        android:scaleType="fitXY" android:adjustViewBounds="true" 
+        android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/tile_gray" 
+        android:ellipsize="end" android:id="@+id/info" 
+        android:layout_width="fill_parent" android:layout_height="wrap_content" 
+        android:layout_marginLeft="10.0dip" android:layout_marginTop="7.0dip" 
+        android:layout_marginRight="10.0dip" android:maxLines="3" 
+        android:layout_below="@id/img" android:lineSpacingExtra="0.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" 
+        android:id="@+id/price_lay" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+        android:layout_marginLeft="10.0dip" android:layout_marginTop="6.0dip" 
+        android:layout_marginRight="10.0dip" android:layout_marginBottom="7.0dip"
+         android:layout_below="@id/info">
+        <ImageView android:id="@+id/ico_price" 
+            android:layout_width="14.0dip" android:layout_height="11.0dip" 
+            android:layout_marginTop="1.0dip" android:src="@drawable/poster_ico_money" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/tile_gray" 
+            android:gravity="center" android:id="@+id/price" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <ImageView android:layout_width="14.0dip" android:layout_height="11.0dip" 
+            android:layout_marginLeft="8.0dip" android:layout_marginTop="1.0dip" 
+            android:src="@drawable/poster_ico_like" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/tile_gray" 
+            android:gravity="center" android:id="@+id/like" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" 
+            android:layout_marginLeft="1.0dip" />
+    </LinearLayout>
+</RelativeLayout>
