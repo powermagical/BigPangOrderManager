@@ -3,4 +3,13 @@
     <color name="black_overlay">#66000000</color>
     <color name="tile_gray">#ff666666</color>
 
+    <color name="main_text_color">#ff666666</color>
+    <color name="main_text_color_diluted">#c6804055</color>
+    <color name="main_text_color_light">#af804050</color>
+    <color name="main_text_color_dark">#7f804050</color>
+    <color name="main_text_color_disable">#ffcfbcc2</color>
+    
+    <color name="pink">#ffff6699</color>
+    
+    
 </resources>
