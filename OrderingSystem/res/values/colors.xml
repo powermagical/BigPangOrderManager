@@ -10,6 +10,7 @@
     <color name="main_text_color_disable">#ffcfbcc2</color>
     
     <color name="pink">#ffff6699</color>
+    <color name="white">#ffffffff</color>
     
     
 </resources>

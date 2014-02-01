@@ -80,10 +80,11 @@ public abstract class ViewWaterfallBase extends ViewBase{
 	 */
 	protected abstract void onGotoBottom(View t);
 	
-	
 	protected void setDataFinished()
 	{
 		this.waterfall.setLoadingFinished(true);
+		this.waterfall.setMessageViewGone();
+		
 	}
 	
 	protected void setLoadingFinished()

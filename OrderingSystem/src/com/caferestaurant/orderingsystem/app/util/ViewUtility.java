@@ -10,14 +10,14 @@ public class ViewUtility {
 	public static View getViewForWaterfallFromResource(int resID, Context context)
 	{
 		View inner = LayoutInflater.from(context).inflate(resID, null, false);
-		inner.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		//inner.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		return inner;
 	}
 	
 	public static View getViewForWaterfallFromResource(int resID, LayoutInflater inflater)
 	{
 		View inner = inflater.inflate(resID, null, false);
-		inner.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		//inner.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		return inner;
 	}
 	

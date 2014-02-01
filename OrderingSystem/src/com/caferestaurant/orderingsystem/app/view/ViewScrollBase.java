@@ -14,6 +14,16 @@ import android.view.View;
  */
 public class ViewScrollBase extends ViewBase {
 
+	/**
+	 * 内部类，用来监听某一次横向的滑动已经结束
+	 */
+	public interface ScrollEndListener
+	{
+		void onScrollEnd(int curScreen);
+	}
+	
+	private ScrollEndListener scrollEndListener;
+	
 	private ScrollLayout scrollLayout;
 	
 	private boolean needRebuildChilds = true;
@@ -94,8 +104,42 @@ public class ViewScrollBase extends ViewBase {
 
 	protected void onSlideEnd(int curScreen)
 	{
+		if (this.scrollEndListener != null)
+		{
+			this.scrollEndListener.onScrollEnd(curScreen);
+		}
 		Log.e("ViewScrollBase", "in onSlideEnd");
 	}
 	
+	public String[] getScreenCaptions()
+	{
+		String[] captions;
+		if (this.needRebuildChilds)
+		{
+			captions = new String[this.getChildCount()];
+			for(int i = 0; i < this.getChildCount(); ++i)
+			{
+				if (this.getChildAt(i) instanceof ViewBase)
+				{
+					captions[i] = ((ViewBase)this.getChildAt(i)).getViewCaption();
+				}
+				else
+				{
+					// 仅供测试用
+					captions[i] = "这是BUG";
+				}
+			}
+		}
+		else
+		{
+			captions = this.scrollLayout.getScreenCaptions();
+		}
+		
+		return captions;
+	}
+
+	public void setScrollEndListener(ScrollEndListener scrollEndListener) {
+		this.scrollEndListener = scrollEndListener;
+	}
 	
 }

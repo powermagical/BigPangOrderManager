@@ -153,7 +153,7 @@ public class ScrollLayout extends ViewGroup {
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
 		
 		if (changed) {
-			int childLeft = 0; 
+			int childLeft = 0;
 			final int childCount = getChildCount();
 
 			for (int i=0; i<childCount; i++) {
@@ -409,6 +409,25 @@ public class ScrollLayout extends ViewGroup {
 
 		boolean res = (this.mTouchState != TOUCH_STATE_REST);
 		return res;
-	}    
+	}
+	
+	
+	public String[] getScreenCaptions()
+	{
+		String[] captions = new String[this.getChildCount()];
+		for(int i = 0; i < this.getChildCount(); ++i)
+		{
+			if (this.getChildAt(i) instanceof ViewBase)
+			{
+				captions[i] = ((ViewBase)this.getChildAt(i)).getViewCaption();
+			}
+			else
+			{
+				// 仅供测试用
+				captions[i] = "这是一个BUG";
+			}
+		}
+		return captions;
+	}
 
 }    

@@ -1,0 +1,7 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!-- 瀑布流布局中的右外边距 -->
+    <dimen name="waterfall_right_margin">5dip</dimen>
+    <!-- 瀑布流布局中的下外边距 -->
+    <dimen name="waterfall_bottom_margin">5dip</dimen>
+</resources>

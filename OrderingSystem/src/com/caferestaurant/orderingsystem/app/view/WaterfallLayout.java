@@ -139,6 +139,15 @@ public class WaterfallLayout extends ScrollView {
 		}
 		
 	}
+	
+	public void setMessageViewGone()
+	{
+		this.messageView.setVisibility(View.GONE);
+		
+		// 需要再做一次全体的布局调整
+		this.measure(MeasureSpec.makeMeasureSpec(this.getMeasuredWidth(), MeasureSpec.EXACTLY), -1);
+		this.layout(this.getLeft(), this.getTop(), this.getRight(), this.getBottom());
+	}
 
 	/**
 	 * 基本构造函数
@@ -351,12 +360,18 @@ public class WaterfallLayout extends ScrollView {
 			throw new IllegalArgumentException("Invalid index in addViewToIndexFlow! Index:" + i);
 		}
 		
-		this.flowLayout.get(i).addView(v);
+		LinearLayout.LayoutParams addParams = 
+				new LinearLayout.LayoutParams(
+						LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+		addParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.waterfall_right_margin);
+		addParams.bottomMargin = getResources().getDimensionPixelSize(R.dimen.waterfall_bottom_margin);
+		
+		
+		this.flowLayout.get(i).addView(v, addParams);
 		this.measure(MeasureSpec.makeMeasureSpec(this.getMeasuredWidth(), MeasureSpec.EXACTLY), -1);
 		this.flowLength[i] = this.flowLayout.get(i).getMeasuredHeight();
 		this.layout(this.getLeft(), this.getTop(), this.getRight(), this.getBottom());
 	}
-
 
 	/**
 	 * 监听scroll事件
