@@ -7,4 +7,9 @@
 	<string name="err_fatal">程序错误</string>
 	<string name="confirm">确认</string>
 	<string name="waterfall_tail">加载中，请稍候</string>
+	<string name="title_shopping_cart">购物车</string>
+	<string name="btn_edit">编辑</string>
+	<string name="btn_to_shopping">去逛逛</string>
+	<string name="text_select_all">" 全选"</string>
+	<string name="btn_to_settle">确定点餐</string>
 </resources>

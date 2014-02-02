@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_horizontal"  android:id="@+id/main_content" 
+    android:background="#fff0edee" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout style="@style/header" android:layout_alignParentTop="true" android:id="@+id/shoppint_cart_title">
+        <TextView android:id="@+id/back" android:visibility="gone" 
+            android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/TopBackBtn" />
+        <TextView android:id="@+id/title" android:text="@string/title_shopping_cart" 
+            android:layout_centerInParent="true" style="@style/headerTextStyle" />
+        <Button android:id="@+id/btn_right" android:visibility="gone" android:text="@string/btn_edit" 
+            android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/TopRightBtn" />
+    </RelativeLayout>
+
+    <LinearLayout android:gravity="center_vertical" 
+        android:id="@+id/shopping_cart_foot" 
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shopping_cart_bg_bottom" 
+        android:padding="10.0dip"  android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" android:layout_marginTop="-3.0dip">
+        <CheckBox android:textSize="16.0sp" android:textColor="@color/main_text_color" 
+            android:id="@+id/all_check_box" android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" android:layout_marginLeft="13.0dip" 
+            android:layout_marginRight="10.0dip" android:button="@drawable/shopping_cart_radio_selector" 
+            android:text="@string/text_select_all" android:drawablePadding="10.0dip" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/pink" 
+            android:id="@+id/total_price" android:layout_width="0.0dip" android:layout_height="wrap_content" 
+            android:singleLine="true" android:layout_weight="1.0" />
+        <TextView android:textSize="19.0sp" android:textColor="#ffffffff" 
+            android:gravity="center" android:id="@+id/pay" android:background="@drawable/round_red_btn_bg" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_to_settle" />
+    </LinearLayout>
+    
+    
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+        android:layout_below="@id/shoppint_cart_title"
+        android:layout_above="@id/shopping_cart_foot">
+                <LinearLayout android:gravity="center" android:orientation="vertical" 
+                    android:id="@+id/empty_lay" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" 
+                        android:src="@drawable/shoppingcart_empty_icon" />
+                    <ImageView android:id="@+id/empty_words" android:layout_width="wrap_content" 
+                        android:layout_height="wrap_content" android:layout_marginTop="40.0dip" 
+                        android:layout_marginBottom="40.0dip" android:src="@drawable/shoppingcart_empty_words" />
+                    <TextView android:textSize="20.0sp" android:textColor="#ffffffff" android:gravity="center" 
+                        android:id="@+id/btn_to_shopping" android:background="@drawable/round_red_btn_bg" 
+                        android:paddingLeft="30.0dip" android:paddingRight="30.0dip" android:layout_width="wrap_content" 
+                        android:layout_height="wrap_content" android:text="@string/btn_to_shopping" />
+                </LinearLayout>
+                <ListView android:id="@+id/list_view" android:paddingLeft="5.0dip" 
+                    android:paddingRight="5.0dip" android:visibility="gone" android:layout_width="fill_parent" 
+                    android:layout_height="fill_parent" android:listSelector="@color/transparent" 
+                    android:cacheColorHint="@color/transparent" android:divider="@null" android:dividerHeight="0.0dip" />
+    </FrameLayout>
+</RelativeLayout>

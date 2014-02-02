@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	
+	<LinearLayout android:orientation="horizontal"
+    	style="@style/header"
+    	android:gravity="center"
+    	android:layout_alignParentTop="true"
+    	android:id="@+id/main_order_caption_layout">
+        <TextView android:id="@+id/main_order_caption"
+            android:text="点菜"
+            style="@style/headerTextStyle"/>
+    </LinearLayout>
+
+
+	<FrameLayout
+     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_below="@id/main_order_caption_layout">
     
-    <LinearLayout android:orientation="horizontal"
-        android:id="@+id/mainorder_tab_container"
-        android:background="@drawable/poster_tab_background"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />"
-    
+
     <com.caferestaurant.orderingsystem.app.view.ViewScrollBase
         android:id="@+id/mainorder_details"
-        android:layout_width="fill_parent"  
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dip">
         
      	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
      	   android:id="@+id/inner_view1"
@@ -25,6 +37,29 @@
          android:layout_width="fill_parent"  
          android:layout_height="fill_parent"/>
      	
+     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
+     	   android:id="@+id/inner_view3"
+         android:layout_width="fill_parent"  
+         android:layout_height="fill_parent"/>
+     	
+     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
+     	   android:id="@+id/inner_view4"
+         android:layout_width="fill_parent"  
+         android:layout_height="fill_parent"/>
+     	
+     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
+     	   android:id="@+id/inner_view5"
+         android:layout_width="fill_parent"  
+         android:layout_height="fill_parent"/>
+     	
      </com.caferestaurant.orderingsystem.app.view.ViewScrollBase>
+     
+     <LinearLayout android:orientation="horizontal"
+        android:id="@+id/mainorder_tab_container"
+        android:background="@drawable/poster_tab_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"/>"
 
-</LinearLayout>
+	</FrameLayout>
+</RelativeLayout>

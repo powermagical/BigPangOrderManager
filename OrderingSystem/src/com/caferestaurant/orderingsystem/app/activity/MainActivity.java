@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity{
 				);
 		
 		this.thTabHost.addTab(
-				this.thTabHost.newTabSpec("4").setIndicator("4").setContent(R.id.view2)
+				this.thTabHost.newTabSpec("4").setIndicator("4").setContent(R.id.view4)
 				);
 		
 		this.thTabHost.addTab(

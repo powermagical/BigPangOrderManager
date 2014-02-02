@@ -33,9 +33,10 @@ public class ViewMainOrder extends ViewBase{
 	
 	private void init(Context context)
 	{
+
 		this.innerView = this.getLayoutInflater().inflate(R.layout.mainorder_layout, this, false);
 		this.addView(this.innerView);
-		
+
 		this.mainTab = (LinearLayout)this.findViewById(R.id.mainorder_tab_container);
 		this.scrollBase = (ViewScrollBase)this.findViewById(R.id.mainorder_details);
 		

@@ -73,6 +73,6 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 
 	@Override
 	public String getViewCaption() {
-		return "相亲对象ABC";
+		return "菜类A";
 	}
 }

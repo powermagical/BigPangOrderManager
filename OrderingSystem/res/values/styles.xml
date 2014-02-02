@@ -41,8 +41,7 @@
         <item name="android:layout_height">50.0dip</item>
     </style>
     
-    
-    
+    <!-- 点菜主页面tab部被选中的样式 -->
     <style name="tabItemSelectedStyle">
         <item name="android:textSize">14.0sp</item>
         <item name="android:textStyle">bold</item>
@@ -56,9 +55,10 @@
         <item name="android:layout_centerVertical">true</item>
     </style>
     
+    <!-- 点菜主页面tab部未被选中的样式 -->
     <style name="tabItemUnselectedStyle">
         <item name="android:textSize">14.0sp</item>
-        <item name="android:textColor">#ff000000</item>
+        <item name="android:textColor">#ff222222</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -68,5 +68,33 @@
         <item name="android:layout_centerVertical">true</item>
     </style>
     
+    <!-- 顶部的返回按钮（一般在左边）的样式 -->
+    <style name="TopBackBtn">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/back_btn_bg</item>
+        <item name="android:paddingLeft">15.0dip</item>
+        <item name="android:paddingTop">11.0dip</item>
+        <item name="android:paddingRight">10.0dip</item>
+        <item name="android:paddingBottom">11.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">45.0dip</item>
+        <item name="android:text">返回</item>
+    </style>
+    
+    <!-- 顶部右边按钮的样式 -->
+    <style name="TopRightBtn">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/btn_attention_bg</item>
+        <item name="android:paddingLeft">10.0dip</item>
+        <item name="android:paddingTop">11.0dip</item>
+        <item name="android:paddingRight">10.0dip</item>
+        <item name="android:paddingBottom">11.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 
 </resources>
