@@ -17,23 +17,34 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class ViewShoppingCart extends ViewBase{
 
-	
+	// 编辑模式
+	// 分为未编辑，正在编辑，编辑过（此状态未使用）
 	public enum EDIT_MODE {NO_EDIT, EDITING, EDITED};
+	
+	// 当前的编辑模式
 	private EDIT_MODE editMode = EDIT_MODE.NO_EDIT;
 	
-	
+	// 内部视图
 	private View innerView;
+	
+	// 购物车中商品列表
 	private ListView listView;
+	
+	// 当购物车为空时所显示的视图
 	private LinearLayout emptyLay;
+	
+	// 顶部的编辑按钮
 	private Button editButton;
 	
+	// 商品列表listview的视图映射
 	private Map<Integer, View> shoppingCartMapView;
 	
-	
-	
+	// 支付确定按钮/删除按钮
+	private TextView payButton;
 	
 	
 	public ViewShoppingCart(Context context) {
@@ -58,10 +69,8 @@ public class ViewShoppingCart extends ViewBase{
 		
 		this.editButton.setOnClickListener(new View.OnClickListener() {
 			
-			@Override
-			public void onClick(View v) {
-					
-				
+			private void adjustCountEditLay(EDIT_MODE currentEditMode)
+			{
 				for(int i = 0; i < types.length; ++i)
 				{
 					if (types[i] == 1)
@@ -70,7 +79,7 @@ public class ViewShoppingCart extends ViewBase{
 						if (w != null)
 						{
 							w = w.findViewById(R.id.count_edit_lay);
-							if (ViewShoppingCart.this.getEditMode() == EDIT_MODE.NO_EDIT)
+							if (currentEditMode == EDIT_MODE.NO_EDIT)
 							{
 								w.setVisibility(View.VISIBLE);
 								w.setAnimation(
@@ -83,7 +92,11 @@ public class ViewShoppingCart extends ViewBase{
 						}
 					}
 				}
-				if (ViewShoppingCart.this.getEditMode() == EDIT_MODE.NO_EDIT)
+			}
+			
+			private void adjustCurrentMode(EDIT_MODE currentEditMode)
+			{
+				if (currentEditMode == EDIT_MODE.NO_EDIT)
 				{
 					ViewShoppingCart.this.setEditMode(EDIT_MODE.EDITING);
 				}
@@ -91,6 +104,38 @@ public class ViewShoppingCart extends ViewBase{
 				{
 					ViewShoppingCart.this.setEditMode(EDIT_MODE.NO_EDIT);
 				}
+			}
+			
+			private void adjustView(EDIT_MODE currentEditMode)
+			{
+				if (currentEditMode == EDIT_MODE.NO_EDIT)
+				{
+					ViewShoppingCart.this.payButton.setBackgroundResource(R.drawable.del_shopcart_btn);
+					ViewShoppingCart.this.payButton.setText(R.string.btn_delete);
+				}
+				else
+				{
+					ViewShoppingCart.this.payButton.setBackgroundResource(R.drawable.round_red_btn_bg);
+					ViewShoppingCart.this.payButton.setText(R.string.btn_to_settle);
+				}
+			}
+			
+			@Override
+			public void onClick(View v) {
+				
+				// 得到当前的模式
+				EDIT_MODE currentMode = ViewShoppingCart.this.getEditMode();
+				
+				// 设定数量调整按钮
+				this.adjustCountEditLay(currentMode);
+				
+				// 设定界面其余布局控件
+				this.adjustView(currentMode);
+				
+				// 设定模式
+				this.adjustCurrentMode(currentMode);
+				
+				
 			}
 		});
 	}
@@ -101,6 +146,8 @@ public class ViewShoppingCart extends ViewBase{
 		this.emptyLay = (LinearLayout)this.innerView.findViewById(R.id.empty_lay);
 		
 		this.editButton = (Button)this.innerView.findViewById(R.id.btn_right);
+		
+		this.payButton = (TextView)this.innerView.findViewById(R.id.pay);
 	}
 	
 	private void init(Context context)
