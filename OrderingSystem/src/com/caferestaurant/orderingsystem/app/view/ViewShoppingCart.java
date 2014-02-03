@@ -37,7 +37,8 @@ public class ViewShoppingCart extends ViewBase{
 	private void initControls(Context context)
 	{
 		this.getControls(context);
-		this.listView.setAdapter(new ShoppingCartListViewAdapter(context, null, new int[] {0, 1, 1, 1, 2, 0, 1, 2, 0, 1, 2, 0, 0, 1, 2, 1, 1}));
+		this.listView.setAdapter(new ShoppingCartListViewAdapter(
+				context, null, new int[] {0, 1, 1, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 1, 2}));
 	}
 	
 	private void getControls(Context context)
@@ -106,7 +107,6 @@ public class ViewShoppingCart extends ViewBase{
 			return position;
 		}
 	 
-
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LayoutInflater mInflater = LayoutInflater.from(context);
