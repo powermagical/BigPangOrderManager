@@ -2,6 +2,8 @@
 <RelativeLayout android:gravity="center_horizontal"  android:id="@+id/main_content" 
     android:background="#fff0edee" android:layout_width="fill_parent" android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- 头部的标题栏 -->
     <RelativeLayout style="@style/header" android:layout_alignParentTop="true" android:id="@+id/shoppint_cart_title">
         <TextView android:id="@+id/back" android:visibility="gone" 
             android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/TopBackBtn" />
@@ -11,6 +13,7 @@
             android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/TopRightBtn" />
     </RelativeLayout>
 
+    <!-- 底部的结算栏 -->
     <LinearLayout android:gravity="center_vertical" 
         android:id="@+id/shopping_cart_foot" 
         android:layout_alignParentBottom="true"
@@ -30,11 +33,11 @@
             android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_to_settle" />
     </LinearLayout>
     
-    
+    <!-- 中间的部分 -->
     <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
         android:layout_below="@id/shoppint_cart_title"
         android:layout_above="@id/shopping_cart_foot">
-                <LinearLayout android:gravity="center" android:orientation="vertical" 
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:visibility="gone"
                     android:id="@+id/empty_lay" android:layout_width="fill_parent" android:layout_height="fill_parent">
                     <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" 
                         android:src="@drawable/shoppingcart_empty_icon" />
@@ -47,7 +50,7 @@
                         android:layout_height="wrap_content" android:text="@string/btn_to_shopping" />
                 </LinearLayout>
                 <ListView android:id="@+id/list_view" android:paddingLeft="5.0dip" 
-                    android:paddingRight="5.0dip" android:visibility="gone" android:layout_width="fill_parent" 
+                    android:paddingRight="5.0dip" android:visibility="visible" android:layout_width="fill_parent" 
                     android:layout_height="fill_parent" android:listSelector="@color/transparent" 
                     android:cacheColorHint="@color/transparent" android:divider="@null" android:dividerHeight="0.0dip" />
     </FrameLayout>

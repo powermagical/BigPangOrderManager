@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/content" android:paddingTop="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" 
+        android:background="@drawable/shoppingcart_list_bg_top" android:paddingLeft="18.0dip" 
+        android:paddingTop="15.0dip" android:paddingRight="15.0dip" android:paddingBottom="15.0dip" 
+        android:layout_width="fill_parent" android:layout_height="60.0dip">
+        <CheckBox android:id="@id/check_box" android:layout_width="26.0dip" android:layout_height="28.0dip" 
+            android:button="@drawable/shopping_cart_radio_selector" />
+        <ImageView android:id="@id/question_mark" android:visibility="gone" android:layout_width="26.0dip" 
+            android:layout_height="28.0dip" android:src="@drawable/shoppingcart_list_disabled" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/shopping_cart_store_title" 
+            android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" 
+            android:layout_marginRight="20.0dip" android:layout_weight="1.0">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/deal_ico_shop" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/main_text_color" 
+                android:id="@+id/store_name" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+                android:layout_marginLeft="5.0dip" android:maxWidth="125.0dip" android:text="石泽研究所" android:singleLine="true" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/main_text_color" android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" android:text=" (" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/pink" android:id="@+id/goods_num" 
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" 2 " />
+            <TextView android:textSize="16.0sp" android:textColor="@color/main_text_color" android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" android:text=")" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

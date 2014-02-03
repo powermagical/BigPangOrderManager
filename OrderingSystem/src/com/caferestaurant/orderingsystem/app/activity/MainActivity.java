@@ -140,7 +140,7 @@ public class MainActivity extends BaseActivity{
 	{
 		this.tvFirstPage.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.toolbar_community_normal, 0, 0);
 		this.tvRecommand.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.toolbar_category_normal, 0, 0);
-		this.tvOrder.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.toolbar_ico_home_normal, 0, 0);
+		this.tvOrder.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.toolbar_home_normal, 0, 0);
 		this.tvShoppingCart.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.toolbar_shoppingcart_normal, 0, 0);
 		this.tvElse.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.toolbar_me_normal, 0, 0);
 		
@@ -161,7 +161,7 @@ public class MainActivity extends BaseActivity{
 			this.tvRecommand.setTextColor(this.getResources().getColor(R.color.pink));
 			break;
 		case 2:
-			this.tvOrder.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.toolbar_ico_home_active, 0, 0);
+			this.tvOrder.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.toolbar_home_active, 0, 0);
 			this.tvOrder.setTextColor(this.getResources().getColor(R.color.pink));
 			break;
 		case 3:

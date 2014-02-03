@@ -8,12 +8,20 @@
     	style="@style/header"
     	android:gravity="center"
     	android:layout_alignParentTop="true"
-    	android:id="@+id/main_order_caption_layout">
+    	android:id="@+id/main_order_caption_layout"
+    	>
         <TextView android:id="@+id/main_order_caption"
             android:text="点菜"
             style="@style/headerTextStyle"/>
+
+
+
     </LinearLayout>
 
+	<Button android:id="@+id/btn_scancode" android:text="@string/btn_scancode" 
+            android:layout_alignParentRight="true"  style="@style/TopRightBtn" />
+	
+	
 
 	<FrameLayout
      android:layout_width="match_parent"
@@ -21,45 +29,46 @@
     android:layout_below="@id/main_order_caption_layout">
     
 
-    <com.caferestaurant.orderingsystem.app.view.ViewScrollBase
-        android:id="@+id/mainorder_details"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="40dip">
-        
-     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
-     	   android:id="@+id/inner_view1"
-         android:layout_width="fill_parent"  
-         android:layout_height="fill_parent"/>
-    	
-     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
-     	   android:id="@+id/inner_view2"
-         android:layout_width="fill_parent"  
-         android:layout_height="fill_parent"/>
-     	
-     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
-     	   android:id="@+id/inner_view3"
-         android:layout_width="fill_parent"  
-         android:layout_height="fill_parent"/>
-     	
-     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
-     	   android:id="@+id/inner_view4"
-         android:layout_width="fill_parent"  
-         android:layout_height="fill_parent"/>
-     	
-     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
-     	   android:id="@+id/inner_view5"
-         android:layout_width="fill_parent"  
-         android:layout_height="fill_parent"/>
-     	
-     </com.caferestaurant.orderingsystem.app.view.ViewScrollBase>
-     
-     <LinearLayout android:orientation="horizontal"
-        android:id="@+id/mainorder_tab_container"
-        android:background="@drawable/poster_tab_background"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"/>"
+	    <com.caferestaurant.orderingsystem.app.view.ViewScrollBase
+	        android:id="@+id/mainorder_details"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginTop="40dip">
+	        
+	     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
+	     	   android:id="@+id/inner_view1"
+	         android:layout_width="fill_parent"  
+	         android:layout_height="fill_parent"/>
+	    	
+	     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
+	     	   android:id="@+id/inner_view2"
+	         android:layout_width="fill_parent"  
+	         android:layout_height="fill_parent"/>
+	     	
+	     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
+	     	   android:id="@+id/inner_view3"
+	         android:layout_width="fill_parent"  
+	         android:layout_height="fill_parent"/>
+	     	
+	     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
+	     	   android:id="@+id/inner_view4"
+	         android:layout_width="fill_parent"  
+	         android:layout_height="fill_parent"/>
+	     	
+	     	<com.caferestaurant.orderingsystem.app.view.TestViewWaterfall
+	     	   android:id="@+id/inner_view5"
+	         android:layout_width="fill_parent"  
+	         android:layout_height="fill_parent"/>
+	     	
+	     </com.caferestaurant.orderingsystem.app.view.ViewScrollBase>
+	     
+	     <LinearLayout android:orientation="horizontal"
+	        android:id="@+id/mainorder_tab_container"
+	        android:background="@drawable/poster_tab_background"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="top"/>"
 
 	</FrameLayout>
+	
 </RelativeLayout>

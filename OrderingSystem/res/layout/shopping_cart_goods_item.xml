@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/content" android:background="@drawable/shoppingcart_list_bg_middle" 
+    android:paddingBottom="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 一根分界线...... -->
+    <View android:background="@color/line_color" android:layout_width="fill_parent" 
+        android:layout_height="1.0dip" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" 
+        android:layout_alignParentTop="true" />
+    
+    <FrameLayout android:id="@+id/select_lay" android:paddingLeft="15.0dip" android:paddingRight="4.0dip" 
+        android:layout_width="wrap_content" android:layout_height="84.0dip" android:layout_marginTop="5.0dip" 
+        android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+        <CheckBox android:layout_gravity="center" android:id="@+id/check_box" android:clickable="true" 
+            android:layout_width="26.0dip" android:layout_height="28.0dip" android:button="@drawable/shopping_cart_radio_selector" />
+        <ImageView android:layout_gravity="center" android:id="@+id/question_mark" android:visibility="gone" 
+            android:layout_width="26.0dip" android:layout_height="28.0dip" android:src="@drawable/shoppingcart_list_disabled" />
+    </FrameLayout>
+    <FrameLayout android:id="@+id/img_lay" android:paddingLeft="4.0dip" android:paddingRight="4.0dip" 
+        android:layout_width="wrap_content" android:layout_height="84.0dip" android:layout_marginTop="5.0dip" 
+        android:layout_toRightOf="@id/select_lay" android:layout_alignParentTop="true">
+        <ImageView android:layout_gravity="center" android:id="@+id/goods_pic" android:background="@drawable/order_goods_bg" 
+            android:padding="5.0dip" android:layout_width="70.0dip" android:layout_height="70.0dip" android:scaleType="fitXY" />
+        <View android:layout_gravity="center" android:id="@+id/mask" android:background="#66ffffff" android:visibility="visible" 
+            android:layout_width="70.0dip" android:layout_height="70.0dip" />
+    </FrameLayout>
+    <RelativeLayout android:id="@+id/goods_info_lay" android:paddingLeft="4.0dip" android:paddingTop="5.0dip" 
+        android:paddingRight="15.0dip" android:layout_width="wrap_content" android:layout_height="84.0dip" 
+        android:layout_marginTop="5.0dip" android:layout_toRightOf="@id/img_lay" android:layout_alignParentTop="true" 
+        android:layout_alignParentRight="true">
+        <TextView android:textSize="14.0sp" android:textColor="@color/main_text_color" android:ellipsize="end" 
+            android:id="@+id/goods_title" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+            android:layout_marginBottom="5.0dip" 
+            android:text="当你穿T恤时，夏天的世界徒然变得简单了起来，一切都是那么轻松与惬意。T恤+短裤，简单的装扮也超有活力，好身材也尽显哦！" 
+            android:maxLines="2" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/light_gray" android:id="@+id/goods_count" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" 
+            android:layout_below="@id/goods_title" android:layout_alignParentRight="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/light_gray" android:ellipsize="end" 
+            android:id="@+id/text_count" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+            android:text="数量 : " android:singleLine="true" android:layout_toLeftOf="@id/goods_count" android:layout_below="@id/goods_title" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/light_gray" android:id="@+id/text_size" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="尺码：" 
+            android:layout_below="@id/goods_title" android:layout_alignParentLeft="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/light_gray" android:id="@+id/goods_size" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-" 
+            android:singleLine="true" android:layout_toLeftOf="@id/text_count" android:layout_toRightOf="@id/text_size" 
+            android:layout_below="@id/goods_title" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/light_gray" android:ellipsize="end" 
+            android:id="@+id/goods_price" android:paddingTop="1.0dip" android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" android:text="￥0" android:singleLine="true" android:layout_below="@id/goods_count" 
+            android:layout_alignParentRight="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/light_gray" android:gravity="center" 
+            android:id="@+id/text_price" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+            android:text="价格 : " android:layout_toLeftOf="@id/goods_price" android:layout_alignTop="@id/goods_price" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/light_gray" android:id="@+id/text_color" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="颜色：" 
+            android:layout_below="@id/text_size" android:layout_alignLeft="@id/text_size" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/light_gray" android:ellipsize="end" 
+            android:id="@+id/goods_color" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+            android:text="-" android:singleLine="true" android:layout_toLeftOf="@id/text_price" android:layout_toRightOf="@id/text_color" 
+            android:layout_alignTop="@id/text_color" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@+id/count_edit_lay" 
+        android:background="@drawable/shoppingcart_list_mask" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" 
+        android:visibility="gone" android:layout_width="wrap_content" android:layout_height="84.0dip" android:layout_marginTop="5.0dip" 
+        android:layout_alignParentTop="true" android:layout_alignParentRight="true">
+        <!-- <com.meilishuo.app.views.CountAdjustView android:id="@+id/count_ajust_view" android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" /> -->
+    </LinearLayout>
+    <TextView android:textColor="@color/pink" android:id="@+id/goods_state" android:paddingLeft="4.0dip" 
+        android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+        android:text="商品已下架" android:layout_below="@id/goods_info_lay" android:layout_alignLeft="@id/goods_info_lay" />
+</RelativeLayout>
