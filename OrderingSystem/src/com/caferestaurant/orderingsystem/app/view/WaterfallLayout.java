@@ -16,6 +16,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -377,6 +378,14 @@ public class WaterfallLayout extends ScrollView {
 		
 		this.flowLayout.get(i).addView(v, addParams);
 		this.measure(MeasureSpec.makeMeasureSpec(this.getMeasuredWidth(), MeasureSpec.EXACTLY), -1);
+		
+		// 为了免去麻烦，这里将v的宽高直接定死，免得后续会发生变化（由于采用了代理模式的Drawable，请参见ViewUtility.getLoadDummyDrawableWithFixedWidthHeight）
+		ViewGroup.LayoutParams lp = v.getLayoutParams();
+		lp.width = v.getMeasuredWidth();
+		lp.height = v.getMeasuredHeight();
+		v.setLayoutParams(lp);
+		
+		
 		this.flowLength[i] = this.flowLayout.get(i).getMeasuredHeight();
 		this.layout(this.getLeft(), this.getTop(), this.getRight(), this.getBottom());
 	}

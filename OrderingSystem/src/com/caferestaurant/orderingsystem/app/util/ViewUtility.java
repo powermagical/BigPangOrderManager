@@ -1,14 +1,44 @@
 package com.caferestaurant.orderingsystem.app.util;
 
 import com.caferestaurant.orderingsystem.app.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 
 public class ViewUtility {
+	
+	private static class DummyBitmapDrawable extends BitmapDrawable
+	{
+		private int width;
+		private int height;
+		public DummyBitmapDrawable(Resources res, Bitmap bitmap, int w, int h)
+		{
+			super(res, bitmap);
+			this.width = w;
+			this.height = h;
+		}
+		
+		@Override
+		public int getIntrinsicHeight()
+		{
+			return this.height;
+		}
+		
+		@Override
+		public int getIntrinsicWidth()
+		{
+			return this.width;
+		}
+	}
+	
 	public static View getViewForWaterfallFromResource(int resID, Context context)
 	{
 		View inner = LayoutInflater.from(context).inflate(resID, null, false);
@@ -76,5 +106,32 @@ public class ViewUtility {
 		
 		
 		return recommandItem;
+	}
+	
+	/**
+	 * 重要方法
+	 * 返回一个Durable的包装类，此类的intrinWidth和intriHeight可以由用户设定
+	 * @param width 指定的intrinWidth
+	 * @param height 指定的intriHeight
+	 * @param baseContext 用来取得resource接口的View
+	 * @param minimumWidth 所要求的最小宽度
+	 * @return
+	 */
+	public static Drawable getLoadDummyDrawableWithFixedWidthHeight(int width, int height, View baseContext, int minimumWidth)
+	{
+		
+		
+		// 根据最小宽度调整高度。如果宽度不足则进行等比例方法。宽度足够的话则不作处理
+		if (width < minimumWidth)
+		{
+			// 包含四舍五入。。。
+			height = (int)(minimumWidth / (float)width * height + 0.5f);
+			width = minimumWidth;
+		}
+		
+		Drawable dummyDrawable = new ViewUtility.DummyBitmapDrawable(baseContext.getResources(), 
+				((BitmapDrawable)baseContext.getResources().getDrawable(R.drawable.dummy_loading_bg)).getBitmap(),
+				width, height);
+		return dummyDrawable;
 	}
 }

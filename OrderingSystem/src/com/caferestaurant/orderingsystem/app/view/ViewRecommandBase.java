@@ -2,10 +2,12 @@ package com.caferestaurant.orderingsystem.app.view;
 
 import com.caferestaurant.orderingsystem.app.R;
 import com.caferestaurant.orderingsystem.app.util.ViewUtility;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
 
 /**
  * ÍÆ¼öÀ¸µÄView
@@ -78,7 +80,4 @@ public class ViewRecommandBase extends ViewBase{
 		recItem = ViewUtility.getRecommandItemLayout(this.getLayoutInflater(), w);
 		this.recommand.addViewToIndexFlow(recItem, 0);
 	}
-	
-	
-	
 }

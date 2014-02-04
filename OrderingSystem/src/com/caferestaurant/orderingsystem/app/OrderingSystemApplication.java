@@ -4,11 +4,19 @@ import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.content.DialogInterface;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.Bitmap.Config;
 import android.os.Looper;
 import android.util.Log;
 
@@ -68,6 +76,30 @@ public class OrderingSystemApplication extends Application{
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		
+		DisplayImageOptions options = new DisplayImageOptions.Builder()
+		.cacheInMemory(true).cacheOnDisc(true)
+		.imageScaleType(ImageScaleType.IN_SAMPLE_INT) 
+		.bitmapConfig(Config.RGB_565)  // 防止内存溢出 如Bitmap.Config.ARGB_8888
+		//.showImageOnLoading(R.drawable.ic_launcher)   //默认图片       
+		//.showImageOnFail(R.drawable.k2k2k2k)// 加载失败显示的图片
+		//.displayer(new RoundedBitmapDisplayer(5))  //圆角，不需要请删除
+		.build();  
+
+
+
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
+		//.memoryCacheExtraOptions(480, 800)  // 缓存在内存的图片的宽和高度
+		//.discCacheExtraOptions(480, 800, CompressFormat.PNG, 70,null) //CompressFormat.PNG类型，70质量（0-100）
+		.memoryCache(new WeakMemoryCache()) 
+		.memoryCacheSize(2 * 1024 * 1024)  //缓存到内存的最大数据
+		.discCacheSize(100 * 1024 * 1024)  //缓存到文件的最大数据
+		.discCacheFileCount(1000)  //文件数量
+		.defaultDisplayImageOptions(options).  //上面的options对象，一些属性配置
+		build();
+		
+		ImageLoader.getInstance().init(config);  //初始化
+
 	}
 
 	/**
