@@ -9,6 +9,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 
 import android.app.Activity;
@@ -81,10 +82,10 @@ public class OrderingSystemApplication extends Application{
 		.cacheInMemory(true).cacheOnDisc(true)
 		.imageScaleType(ImageScaleType.IN_SAMPLE_INT) 
 		.bitmapConfig(Config.RGB_565)  // 防止内存溢出 如Bitmap.Config.ARGB_8888
-		//.showImageOnLoading(R.drawable.ic_launcher)   //默认图片       
+		//.showImageOnLoading(R.drawable.load_flower)   //默认图片       
 		//.showImageOnFail(R.drawable.k2k2k2k)// 加载失败显示的图片
 		//.displayer(new RoundedBitmapDisplayer(5))  //圆角，不需要请删除
-		.build();  
+		.build();
 
 
 

@@ -67,9 +67,9 @@ public abstract class ViewWaterfallBase extends ViewBase{
 	
 	protected void addViewToWaterfall(View v)
 	{
-		int curScrollPos = this.getScrollY();
+		//int curScrollPos = this.getScrollY();
 		this.waterfall.addViewToIndexFlow(v, this.waterfall.getShortestFlowIndex());
-		this.scrollTo(0, curScrollPos);
+		//this.scrollTo(0, curScrollPos);
 	}
 	
 	/**

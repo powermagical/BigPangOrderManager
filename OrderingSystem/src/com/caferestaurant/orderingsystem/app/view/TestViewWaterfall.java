@@ -7,12 +7,16 @@ import java.lang.reflect.Proxy;
 import com.caferestaurant.orderingsystem.app.R;
 import com.caferestaurant.orderingsystem.app.util.ViewUtility;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,6 +55,40 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 	
 	private int count = 0;
 	
+	private ImageLoadingListener lsn = new ImageLoadingListener() {
+		
+		private ColorDrawable colorBase= new ColorDrawable(android.R.color.transparent);
+		@Override
+		public void onLoadingCancelled(String arg0,
+				View arg1) 
+		{}
+
+		@Override
+		public void onLoadingComplete(String arg0,
+				View arg1, Bitmap arg2) {
+			
+			ImageView iv = (ImageView)arg1;
+			
+			// 设置动画
+			TransitionDrawable td = new TransitionDrawable(
+				new Drawable[] {colorBase, new BitmapDrawable(iv.getResources(), arg2)});
+			td.setCrossFadeEnabled(true);
+			iv.setImageDrawable(td);
+			td.startTransition(1000);
+		}
+
+		@Override
+		public void onLoadingFailed(String arg0, View arg1,
+				FailReason arg2) 
+		{}
+
+		@Override
+		public void onLoadingStarted(String arg0, View arg1) 
+		{}
+		
+	};
+	
+	
 	private void addSomeImages()
 	{
 		LayoutInflater inf = this.getInflater();
@@ -76,9 +114,8 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 						ViewUtility.getLoadDummyDrawableWithFixedWidthHeight(380, 640, this, 750));
 				this.addViewToWaterfall(inner);
 				ImageLoader.getInstance().displayImage(
-						"http://imgsrc.baidu.com/forum/pic/item/655e4590f603738dc00b8a62b31bb051f919ec89.jpg", iv);
+						"http://imgsrc.baidu.com/forum/pic/item/655e4590f603738dc00b8a62b31bb051f919ec89.jpg", iv, this.lsn);
 				this.adjustImageViewAfterAdding(inner);
-				
 				
 				inner = inf.inflate(R.layout.tile_view, null, false);
 				//inner.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
@@ -88,7 +125,7 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 				//iv.setImageResource(R.drawable.weng2);
 				this.addViewToWaterfall(inner);
 				ImageLoader.getInstance().displayImage(
-						"http://imgsrc.baidu.com/forum/pic/item/b25912950a7b0208c8428fa162d9f2d3562cc843.jpg", iv);
+						"http://imgsrc.baidu.com/forum/pic/item/b25912950a7b0208c8428fa162d9f2d3562cc843.jpg", iv, this.lsn);
 				this.adjustImageViewAfterAdding(inner);
 				
 				inner = inf.inflate(R.layout.tile_view, null, false);
@@ -99,7 +136,7 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 						ViewUtility.getLoadDummyDrawableWithFixedWidthHeight(434, 651, this, 750));
 				this.addViewToWaterfall(inner);
 				ImageLoader.getInstance().displayImage(
-						"http://imgsrc.baidu.com/forum/pic/item/d4a55e3d269759ee7baa563db2fb43166c22df29.jpg", iv);
+						"http://imgsrc.baidu.com/forum/pic/item/d4a55e3d269759ee7baa563db2fb43166c22df29.jpg", iv, this.lsn);
 				this.adjustImageViewAfterAdding(inner);
 				
 				inner = inf.inflate(R.layout.tile_view, null, false);
@@ -110,9 +147,8 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 						ViewUtility.getLoadDummyDrawableWithFixedWidthHeight(977, 651, this, 750));
 				this.addViewToWaterfall(inner);
 				ImageLoader.getInstance().displayImage(
-						"http://imgsrc.baidu.com/forum/pic/item/3ca19625bc315c609a485d198db1cb134b5477c2.jpg", iv);
+						"http://imgsrc.baidu.com/forum/pic/item/3ca19625bc315c609a485d198db1cb134b5477c2.jpg", iv, this.lsn);
 				this.adjustImageViewAfterAdding(inner);
-				
 				
 				inner = inf.inflate(R.layout.tile_view, null, false);
 				//inner.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
@@ -122,12 +158,17 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 						ViewUtility.getLoadDummyDrawableWithFixedWidthHeight(434, 651, this, 750));
 				this.addViewToWaterfall(inner);
 				ImageLoader.getInstance().displayImage(
-						"http://imgsrc.baidu.com/forum/pic/item/93152fa4462309f7df2c9be4720e0cf3d6cad660.jpg", iv);
+						"http://imgsrc.baidu.com/forum/pic/item/93152fa4462309f7df2c9be4720e0cf3d6cad660.jpg",
+						iv, this.lsn);
 				this.adjustImageViewAfterAdding(inner);
 			
 			}
 	}
 
+	/**
+	 * 为了防止视图被再次调整大小（onmeasure的结果），在这里强制将imageview的宽度和高度定死
+	 * @param v
+	 */
 	private void adjustImageViewAfterAdding(View v)
 	{
 		ImageView iv = (ImageView)v.findViewById(R.id.img);
