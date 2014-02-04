@@ -60,7 +60,7 @@
 	                
 	                <ImageView android:background="@drawable/poster_tab_bg_small" 
 	        	    	android:layout_width="fill_parent" android:layout_height="wrap_content" 
-	        	    	android:id="@+id/shoppint_cart_ribbon"/>
+	        	    	android:id="@+id/shopping_cart_ribbon"/>
 	    </FrameLayout>
 	</RelativeLayout>
 </RelativeLayout>

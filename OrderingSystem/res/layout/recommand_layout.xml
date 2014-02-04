@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	
+	<LinearLayout android:orientation="horizontal"
+    	style="@style/header"
+    	android:gravity="center"
+    	android:layout_alignParentTop="true"
+    	android:id="@+id/recommand_caption_layout"
+    	>
+        <TextView android:id="@+id/recommand_caption"
+            android:text="推荐"
+            style="@style/headerTextStyle"/>
+    </LinearLayout>
+
+	<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/recommand_caption_layout">
+    
+
+	    <com.caferestaurant.orderingsystem.app.view.ViewRecommandBase
+	        android:id="@+id/recommand_details"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent">
+	        
+	     	
+	     </com.caferestaurant.orderingsystem.app.view.ViewRecommandBase>
+	     
+         <ImageView android:background="@drawable/poster_tab_bg_small" 
+ 	    	android:layout_width="fill_parent" android:layout_height="wrap_content" 
+ 	    	android:id="@+id/recommand_ribbon"/>
+	</FrameLayout>
+	
+</RelativeLayout>

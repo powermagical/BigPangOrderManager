@@ -4,4 +4,6 @@
     <dimen name="waterfall_right_margin">5dip</dimen>
     <!-- 瀑布流布局中的下外边距 -->
     <dimen name="waterfall_bottom_margin">5dip</dimen>
+    <!-- 在推荐布局中用于调整图片间距的尺寸 -->
+    <dimen name="recommand_inner_margin_space">5dip</dimen>
 </resources>

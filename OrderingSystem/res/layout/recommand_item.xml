@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/layout_main" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:baselineAligned="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@+id/layout_01" android:background="@drawable/poster_goods_bg" 
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="14dip">
+        <ImageView android:id="@+id/img_01" android:paddingLeft="2.0dip" android:paddingRight="2.0dip" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" 
+            android:gravity="bottom" android:id="@+id/text01" android:background="@drawable/post_mask" 
+            android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:paddingBottom="4.0dip"
+            android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+            android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:layout_marginBottom="2.0dip" 
+            android:maxLines="2" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/layout_05" android:background="@drawable/poster_goods_bg" 
+        android:layout_width="wrap_content" android:layout_height="wrap_content" 
+        android:layout_marginTop="14dip" android:layout_alignParentRight="true">
+        <ImageView android:id="@+id/img_05" android:paddingLeft="2.0dip" android:paddingRight="2.0dip" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" 
+            android:gravity="bottom" android:id="@+id/text05" android:background="@drawable/post_mask" 
+            android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:paddingBottom="4.0dip" 
+            android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" 
+            android:layout_marginRight="2.0dip" android:maxLines="2" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/layout_02" android:background="@drawable/poster_goods_bg" 
+        android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" 
+        android:layout_below="@id/layout_01">
+        <ImageView android:id="@+id/img_02" android:paddingLeft="2.0dip" android:paddingRight="2.0dip" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" 
+            android:gravity="bottom" android:id="@+id/text02" android:background="@drawable/post_mask" 
+            android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:paddingBottom="4.0dip" 
+            android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" 
+            android:layout_marginRight="2.0dip" android:maxLines="2" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/layout_03" android:background="@drawable/poster_goods_bg" 
+        android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignTop="@id/layout_02" 
+        android:layout_alignRight="@id/layout_01">
+        <ImageView android:id="@+id/img_03" android:paddingLeft="2.0dip" android:paddingRight="2.0dip" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" 
+            android:gravity="bottom" android:id="@+id/text03" android:background="@drawable/post_mask" 
+            android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:paddingBottom="4.0dip" 
+            android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" 
+            android:layout_marginRight="2.0dip" android:maxLines="2" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/layout_06" android:background="@drawable/poster_goods_bg" 
+        android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" 
+        android:layout_below="@id/layout_05" android:layout_alignParentRight="true">
+        <ImageView android:id="@+id/img_06" android:paddingLeft="2.0dip" android:paddingRight="2.0dip" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" 
+            android:gravity="bottom" android:id="@+id/text06" android:background="@drawable/post_mask" 
+            android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:paddingBottom="4.0dip" 
+            android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" 
+            android:layout_marginRight="2.0dip" android:maxLines="2" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/layout_04" android:background="@drawable/poster_goods_bg" 
+        android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignRight="@id/layout_01" 
+        android:layout_alignBottom="@id/layout_02">
+        <ImageView android:id="@+id/img_04" android:paddingLeft="2.0dip" android:paddingRight="2.0dip" 
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" 
+            android:layout_alignParentBottom="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" 
+            android:gravity="bottom" android:id="@+id/text04" android:background="@drawable/post_mask" 
+            android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:paddingBottom="4.0dip" 
+            android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" 
+            android:layout_marginRight="2.0dip" android:maxLines="2" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</RelativeLayout>

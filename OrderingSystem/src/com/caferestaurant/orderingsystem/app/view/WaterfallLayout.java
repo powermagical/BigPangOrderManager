@@ -148,6 +148,11 @@ public class WaterfallLayout extends ScrollView {
 		this.measure(MeasureSpec.makeMeasureSpec(this.getMeasuredWidth(), MeasureSpec.EXACTLY), -1);
 		this.layout(this.getLeft(), this.getTop(), this.getRight(), this.getBottom());
 	}
+	
+	protected int getDefaultColumnNum()
+	{
+		return WaterfallLayout.DEFAULT_WATERFALL_NUM;
+	}
 
 	/**
 	 * 基本构造函数
@@ -156,7 +161,7 @@ public class WaterfallLayout extends ScrollView {
 	public WaterfallLayout(Context context) {
 		super(context);
 		
-		this.createInnerViews(DEFAULT_WATERFALL_NUM, context);
+		this.createInnerViews(this.getDefaultColumnNum(), context);
 	}
 	
 	public WaterfallLayout(Context context, int fallNum) {
@@ -175,7 +180,7 @@ public class WaterfallLayout extends ScrollView {
 		// 自定义属性，取得列数
 		// (如果仅仅)
 		TypedArray a = context.obtainStyledAttributes(attrs,R.styleable.WaterfallLayout); 
-		int flowNum = a.getInt(R.styleable.WaterfallLayout_flowNumber, DEFAULT_WATERFALL_NUM); 
+		int flowNum = a.getInt(R.styleable.WaterfallLayout_flowNumber, this.getDefaultColumnNum()); 
 		a.recycle();
 
 		this.createInnerViews(flowNum, context);
@@ -224,7 +229,6 @@ public class WaterfallLayout extends ScrollView {
 			inVertical.setLayoutParams(new LinearLayout.LayoutParams(1, LayoutParams.WRAP_CONTENT, 1.0f));
 			
 			// dummy view
-			// 仅供测试
 			DummyView dv = new DummyView(context);
 			dv.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 1));
 			dv.setBackgroundColor(Color.BLACK);
@@ -288,6 +292,10 @@ public class WaterfallLayout extends ScrollView {
 		}
 	}
 	
+	protected int getFlowWidth(int idx)
+	{
+		return this.flowLayout.get(idx).getMeasuredWidth();
+	}
 
 	/**
 	 * 设定更新消息的可见性

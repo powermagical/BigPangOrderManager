@@ -18,10 +18,10 @@
 	            android:layout_width="fill_parent" android:layout_height="fill_parent"
 	            android:paddingBottom="50dip">
 	            
-	  	        <ImageView android:id="@+id/view1"
+	  	        <com.caferestaurant.orderingsystem.app.view.ViewRecommand
+	                        android:id="@+id/view1"
 	                        android:layout_width="fill_parent"  
-	                        android:layout_height="fill_parent"
-	                        android:background="@drawable/weng8"/>
+	                        android:layout_height="fill_parent" />
 	  	        
 	            <ImageView android:id="@+id/view2"
 	                        android:layout_width="fill_parent"  
@@ -51,13 +51,13 @@
 	                android:textColor="@color/main_text_color" 
 	                android:gravity="center_horizontal" android:id="@+id/tv_first_page" 
 	                android:layout_width="0.0dip" android:layout_height="fill_parent" 
-	                android:layout_marginTop="4.0dip" android:text="首页"
+	                android:layout_marginTop="4.0dip" android:text="推荐"
 	                android:drawableTop="@drawable/toolbar_community_normal"
 	                android:drawablePadding="-2.0dip" android:layout_weight="1.0" />
 	            <TextView android:textSize="9.0sp" android:textColor="@color/main_text_color"
 	                android:gravity="center_horizontal" android:id="@+id/tv_recommand"
 	                android:layout_width="0.0dip" android:layout_height="fill_parent"
-	                android:layout_marginTop="4.0dip" android:text="推荐"
+	                android:layout_marginTop="4.0dip" android:text="排名"
 	                android:drawableTop="@drawable/toolbar_category_normal"
 	                android:drawablePadding="-2.0dip" android:layout_weight="1.0" />
 	            <View android:layout_width="20.0dip" android:layout_height="wrap_content" />
