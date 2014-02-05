@@ -6,7 +6,18 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+	<!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+	<uses-feature android:name="android.hardware.camera" android:required="false"/>
+	<uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
     
+	<supports-screens android:xlargeScreens="true"
+	                 android:largeScreens="true"
+	                 android:normalScreens="true"
+	                 android:smallScreens="true"
+	                 android:anyDensity="true"/>
+	
     <uses-sdk
         android:minSdkVersion="13"
         android:targetSdkVersion="17" />
@@ -27,6 +38,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity android:name="com.google.zxing.client.android.CaptureActivity"
+			android:screenOrientation="landscape"
+			android:clearTaskOnLaunch="true"
+			android:stateNotNeeded="true"
+			android:configChanges="orientation|keyboardHidden"
+			android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+			android:windowSoftInputMode="stateAlwaysHidden">
+			<intent-filter>
+				<action android:name="com.caferestaurant.orderingsystem.app.SCAN"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+
     </application>
 
 </manifest>

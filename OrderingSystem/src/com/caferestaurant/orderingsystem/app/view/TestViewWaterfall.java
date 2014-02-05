@@ -54,8 +54,6 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 		}
 	}
 	
-	private int count = 0;
-	
 	private ImageLoadingListener lsn = new ImageLoadingListener() {
 		
 		private ColorDrawable colorBase= new ColorDrawable(android.R.color.transparent);

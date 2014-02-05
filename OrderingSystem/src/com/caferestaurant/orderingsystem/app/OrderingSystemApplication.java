@@ -74,6 +74,7 @@ public class OrderingSystemApplication extends Application{
 	private void init() {
 		try {
 			Class.forName("TestDataUtil");
+			Class.forName("com.google.zxing.client.android.CaptureActivity");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

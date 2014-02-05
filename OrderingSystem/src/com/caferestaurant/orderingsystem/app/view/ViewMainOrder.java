@@ -3,6 +3,7 @@ package com.caferestaurant.orderingsystem.app.view;
 import com.caferestaurant.orderingsystem.app.R;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
@@ -20,6 +21,8 @@ public class ViewMainOrder extends ViewBase{
 	private ViewScrollBase scrollBase;
 	
 	private RelativeLayout[] mainTabItems;
+	
+	private Button scanCode;
 	
 	public ViewMainOrder(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -40,6 +43,8 @@ public class ViewMainOrder extends ViewBase{
 		this.mainTab = (LinearLayout)this.findViewById(R.id.mainorder_tab_container);
 		this.scrollBase = (ViewScrollBase)this.findViewById(R.id.mainorder_details);
 		
+		this.scanCode = (Button)this.findViewById(R.id.btn_scancode);
+		
 		this.initTabCaptions(context);
 		
 		this.scrollBase.setScrollEndListener(new ViewScrollBase.ScrollEndListener() {
@@ -48,6 +53,19 @@ public class ViewMainOrder extends ViewBase{
 			public void onScrollEnd(int curScreen) {
 				ViewMainOrder.this.setSelectedTabItem(curScreen);
 			}
+		});
+		
+		this.scanCode.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent();
+				intent.setAction(com.google.zxing.client.android.Intents.Scan.ACTION);
+				ViewMainOrder.this.getContext().startActivity(intent);
+				
+			}
+			
 		});
 	}
 
