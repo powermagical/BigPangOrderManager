@@ -404,6 +404,7 @@ public class WaterfallLayout extends ScrollView {
 		if (t + WaterfallLayout.this.getHeight()
 				>= WaterfallLayout.this.picturesLayout.getMeasuredHeight())
 		{
+			
 			// 若Load没有完全完成且尚未开始再次load，则显示Loading的图标并触发监听器，同时置load中flag为true
 			if (!this.isLoadingFinished)
 			{
@@ -412,6 +413,9 @@ public class WaterfallLayout extends ScrollView {
 					Log.e("onScrollChanged", "entering update message");
 					this.messageView.setVisibility(View.VISIBLE);
 					this.isLoadingProcess = true;
+					
+					// 停止当前还在进行的滚动！！！！
+					this.smoothScrollBy(0, 0);
 					
 					if (this.scrollToBottomListener != null)
 					{
