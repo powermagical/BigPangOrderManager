@@ -22,11 +22,12 @@
             android:layout_alignParentRight="true"  style="@style/TopRightBtn" />
 	
 	
-
 	<FrameLayout
      android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_below="@id/main_order_caption_layout">
+    android:layout_below="@id/main_order_caption_layout"
+    android:visibility="invisible"
+    android:id="@+id/main_order_main_layout">
     
 
 	    <com.caferestaurant.orderingsystem.app.view.ViewScrollBase
@@ -62,6 +63,10 @@
 	     	
 	     </com.caferestaurant.orderingsystem.app.view.ViewScrollBase>
 	     
+	     
+
+	    
+	    
 	     <LinearLayout android:orientation="horizontal"
 	        android:id="@+id/mainorder_tab_container"
 	        android:background="@drawable/poster_tab_background"
@@ -70,5 +75,11 @@
 	        android:layout_gravity="top"/>"
 
 	</FrameLayout>
+	
+	<ProgressBar android:id="@+id/progressbar_pink" 
+	     android:layout_width="wrap_content" android:layout_height="wrap_content" 
+	     android:indeterminateDrawable="@drawable/myprogressdrawable" 
+	     android:layout_centerInParent="true" />
+	
 	
 </RelativeLayout>

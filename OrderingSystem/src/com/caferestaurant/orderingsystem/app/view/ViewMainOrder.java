@@ -32,6 +32,8 @@ public class ViewMainOrder extends ViewBase{
 	public ViewMainOrder(Context context) {
 		super(context);
 		this.init(context);
+		
+		
 	}
 	
 	private void init(Context context)
@@ -67,6 +69,15 @@ public class ViewMainOrder extends ViewBase{
 			}
 			
 		});
+		
+		
+		this.postDelayed(new Runnable(){
+			@Override
+			public void run() {
+				ViewMainOrder.this.findViewById(R.id.main_order_main_layout).setVisibility(VISIBLE);
+				ViewMainOrder.this.findViewById(R.id.progressbar_pink).setVisibility(INVISIBLE);
+			}
+		}, 5000);
 	}
 
 	private void initTabCaptions(Context ctx)

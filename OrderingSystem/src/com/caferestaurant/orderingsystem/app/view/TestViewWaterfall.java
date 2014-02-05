@@ -37,7 +37,7 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 
 	@Override
 	protected void onDrawStart(View t) {
-		this.addSomeImages();
+		addSomeImages();
 	}
 
 	@Override
