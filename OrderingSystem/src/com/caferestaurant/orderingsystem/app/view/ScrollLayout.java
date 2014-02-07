@@ -165,6 +165,14 @@ public class ScrollLayout extends ViewGroup {
 					childLeft += childWidth;
 				}
 			}
+			
+			// 在基本的layout完成后，隐藏除了第一个screen以外的所有screen
+			for (int i = 1; i < childCount; i++)
+			{
+				View childView = this.getChildAt(i);
+				childView.setVisibility(INVISIBLE);
+			}
+			
 		}
 	}
 	
@@ -253,6 +261,34 @@ public class ScrollLayout extends ViewGroup {
 		return this.mCurScreen;
 	}
 	
+	/**
+	 * 判定当前被显示的screen下表
+	 * 说明：
+	 * 在某一时刻，只可能同时显示两个screen，所以返回值为一个长度为2的数组
+	 * 依据当前滚动到的X坐标进行判断
+	 * 如果X坐标除以屏幕宽度的余数大于屏幕宽度的一半，则判为两个screen同时显示
+	 * 否则均以X坐标除以屏幕宽度的值所对应的屏幕为显示
+	 * @param currX 当前滚动到的X坐标
+	 */
+	private int[] computeCurrentShowingScreen(int currX)
+	{
+		int [] temp = new int[2];
+		
+		int curPos = currX / this.getWidth();
+		temp[0] = curPos;
+		int trimResult = currX % this.getWidth();
+		if (trimResult > (this.getWidth() / 2))
+		{
+			temp[1] = curPos + 1;
+		}
+		else
+		{
+			temp[1] = -1;
+		}
+		
+		return temp;
+	}
+	
 
 	/**
 	 * 计算滚动
@@ -267,6 +303,21 @@ public class ScrollLayout extends ViewGroup {
 			// 否则未必有下一帧滑动动画
 			this.postInvalidate();
 		}
+		
+		// 取得当前正被显示的screen下标
+		// 如果尚在INVISIBLE状态，则变为可视
+		int[] trimResult = this.computeCurrentShowingScreen(this.mScroller.getCurrX());
+		for(int i = 0; i < trimResult.length; ++i)
+		{
+			if (trimResult[i] >= 0 && trimResult[i] < this.getChildCount())
+			{
+				if (this.getChildAt(trimResult[i]).getVisibility() != VISIBLE)
+				{
+					this.getChildAt(trimResult[i]).setVisibility(VISIBLE);
+				}
+			}
+		}
+		
 		
 		//Log.e(TAG, "dist is " + Math.abs(this.mScroller.getCurrX() - this.mScroller.getFinalX()));
 		if (this.mScroller.getCurrX() == this.mScroller.getFinalX())

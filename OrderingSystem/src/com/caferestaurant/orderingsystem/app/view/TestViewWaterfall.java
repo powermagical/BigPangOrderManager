@@ -54,6 +54,10 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 		}
 	}
 	
+	/**
+	 * universal loading image 库的图像加载处理结束的监听器
+	 * 具体请参照universal image loader库
+	 */
 	private ImageLoadingListener lsn = new ImageLoadingListener() {
 		
 		private ColorDrawable colorBase= new ColorDrawable(android.R.color.transparent);
@@ -71,7 +75,7 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 			// 设置动画
 			TransitionDrawable td = new TransitionDrawable(
 				new Drawable[] {colorBase, new BitmapDrawable(iv.getResources(), arg2)});
-			td.setCrossFadeEnabled(true);
+			//td.setCrossFadeEnabled(true);
 			iv.setImageDrawable(td);
 			td.startTransition(500);
 		}
@@ -90,7 +94,7 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 	
 	private void addSomeImages()
 	{
-		LayoutInflater inf = this.getInflater();
+		LayoutInflater inf = this.getLayoutInflater();
 		
 		
 			/*
@@ -104,7 +108,7 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 			 * 但图片的比例依然保持（在XML文件中定义）.
 			 * 注意！！！空白将在第二次添加图片的时候被自动去除！！！！（因为又做了一次layout）
 			 * */
-			for(int i = 0; i < 5; ++i)
+			for(int i = 0; i < 2; ++i)
 			{
 				// 下面的调用顺序不能够弄错
 				// 否则将会出问题
@@ -191,5 +195,22 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 	@Override
 	public String getViewCaption() {
 		return "菜类A";
+	}
+
+	/**
+	 * 等待界面被显示的事件处理
+	 * 为了模拟初始化事件，在3秒后关闭等待界面
+	 */
+	@Override
+	protected void onInitFirstDraw(View t) {
+		this.postDelayed(new Runnable() {
+
+			@Override
+			public void run() {
+				TestViewWaterfall.this.finishInit();
+			}
+		}, 
+		3000);
+		
 	}
 }

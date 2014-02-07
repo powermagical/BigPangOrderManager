@@ -71,13 +71,13 @@ public class ViewMainOrder extends ViewBase{
 		});
 		
 		
-		this.postDelayed(new Runnable(){
+		/*this.postDelayed(new Runnable(){
 			@Override
 			public void run() {
 				ViewMainOrder.this.findViewById(R.id.main_order_main_layout).setVisibility(VISIBLE);
 				ViewMainOrder.this.findViewById(R.id.progressbar_pink).setVisibility(INVISIBLE);
 			}
-		}, 5000);
+		}, 5000);*/
 	}
 
 	private void initTabCaptions(Context ctx)

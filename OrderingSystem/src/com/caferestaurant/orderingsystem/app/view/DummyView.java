@@ -10,12 +10,19 @@ import android.view.View;
 /**
  * 没有特别用处的VIEW
  * 一般用来占位或者调试
- * 但是建议不要删除
  *
  */
 public class DummyView extends View{
 
 	private Handler mainHandler;
+	
+	// 本View第一次被显示时的回调接口
+	public interface FirstDrawListener
+	{
+		void onFirstDrawStart(View v);
+	}
+	
+	private FirstDrawListener lsner;
 	
 	public DummyView(Context context) {
 		super(context);
@@ -32,6 +39,14 @@ public class DummyView extends View{
 		{
 			this.mainHandler.sendEmptyMessage(0);
 		}
+		if (this.isFirstDraw)
+		{
+			this.isFirstDraw = false;
+			if (this.lsner != null)
+			{
+				this.lsner.onFirstDrawStart(this);
+			}
+		}
 	}
 
 	public void setMainHandler(Handler mainHandler) {
@@ -44,5 +59,11 @@ public class DummyView extends View{
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		return true;
+	}
+
+	private boolean isFirstDraw = true;
+	
+	public void setFirstDrawListener(FirstDrawListener lsner) {
+		this.lsner = lsner;
 	}
 }
