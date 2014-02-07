@@ -73,7 +73,7 @@ public class OrderingSystemApplication extends Application{
 
 	private void init() {
 		try {
-			Class.forName("TestDataUtil");
+			// 此处仅仅为了加快速度
 			Class.forName("com.google.zxing.client.android.CaptureActivity");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
