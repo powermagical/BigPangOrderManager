@@ -6,4 +6,6 @@
     <dimen name="waterfall_bottom_margin">5dip</dimen>
     <!-- 在推荐布局中用于调整图片间距的尺寸 -->
     <dimen name="recommand_inner_margin_space">5dip</dimen>
+    <dimen name="shopping_detail_footer_round_btn_h">40.0dip</dimen>
+    <dimen name="shopping_detail_footer_round_btn_w">112.0dip</dimen>
 </resources>
