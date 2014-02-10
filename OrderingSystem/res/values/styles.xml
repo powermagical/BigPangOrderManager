@@ -41,6 +41,15 @@
         <item name="android:layout_height">50.0dip</item>
     </style>
     
+    <!-- 排名的每个种类中的标题栏 -->
+    <style name="top_item_header">
+        <item name="android:background">@drawable/top_item_header_bg</item>
+        <item name="android:paddingLeft">8.0dip</item>
+        <item name="android:paddingRight">8.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">35.0dip</item>
+    </style>
+    
     <!-- 点菜主页面tab部被选中的样式 -->
     <style name="tabItemSelectedStyle">
         <item name="android:textSize">14.0sp</item>

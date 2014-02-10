@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@+id/top_item_layout" 
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<RelativeLayout android:id="@+id/top_item_type" style="@style/top_item_header"
+	    		    android:layout_marginBottom="5dip">
+		<TextView android:id="@+id/top_item_type_text" 
+		    android:layout_width="wrap_content" android:layout_height="wrap_content"
+		    android:layout_centerVertical="true" style="@style/headerTextStyle" 
+		    android:layout_centerHorizontal="true"
+		    android:text="酒类"/>
+	</RelativeLayout>
+
+	<LinearLayout android:orientation="horizontal" android:id="@+id/top_items" 
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+		<ImageView android:id="@+id/top_item_1" android:layout_width="0dip" android:layout_height="100dip"
+		    android:background="@drawable/top_item_bg" android:layout_weight="1.0"/>
+		<ImageView android:id="@+id/top_item_2" android:layout_width="0dip" android:layout_height="100dip"
+		    android:background="@drawable/top_item_bg" android:layout_weight="1.0"/>
+		<ImageView android:id="@+id/top_item_3" android:layout_width="0dip" android:layout_height="100dip"
+		    android:background="@drawable/top_item_bg" android:layout_weight="1.0"/>
+		<TextView android:id="@+id/top_item_others" android:layout_width="50.0dip" 
+			android:layout_height="match_parent" android:background="@drawable/top_item_bg"
+			android:gravity="center" android:textSize="14.0sp" android:textColor="@color/tile_gray" 
+			android:text="其他"/>
+	</LinearLayout>
+	
+</LinearLayout>
