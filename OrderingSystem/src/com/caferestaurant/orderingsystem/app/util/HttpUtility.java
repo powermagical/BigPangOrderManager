@@ -1,5 +1,12 @@
 package com.caferestaurant.orderingsystem.app.util;
 
+import java.io.UnsupportedEncodingException;
+
+import org.apache.http.entity.StringEntity;
+import org.json.JSONObject;
+
+import android.content.Context;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.BinaryHttpResponseHandler;
@@ -36,9 +43,30 @@ public class HttpUtility {
 		client.get(urlString, res);
 	}
 	
+	// 不带参数，获取json对象或者数组
+	public static void post(String urlString, JsonHttpResponseHandler res) 
+	{
+		client.post(urlString, res);
+	}
+	
 	// 带参数，获取json对象或者数组
 	public static void get(String urlString, RequestParams params, JsonHttpResponseHandler res) {
 		client.get(urlString, params, res);
+	}
+	
+	// 带参数，获取json对象或者数组
+	public static void post(String urlString, RequestParams params, JsonHttpResponseHandler res) {
+		client.post(urlString, params, res);
+	}
+	
+	
+	public static void post(Context ctx, String urlString, JSONObject sendObj, JsonHttpResponseHandler res) 
+			throws UnsupportedEncodingException
+	{
+		StringEntity s = new StringEntity(sendObj.toString(), "UTF-8");
+		s.setContentEncoding("UTF-8");
+		s.setContentType("application/json");
+		client.post(ctx, urlString, s, "application/json", res);
 	}
 	
 	// 下载数据使用，会返回byte数据
