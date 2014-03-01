@@ -26,7 +26,7 @@ public abstract class CommunicationBase {
 	/** 回调接口定义 */
 	public static interface CommunicationCallBack
 	{
-		public void response(int result, String resultDetail, Object resData, Object cookie); 
+		public void response(int result, Object resData, Object cookie); 
 	}
 	
 }

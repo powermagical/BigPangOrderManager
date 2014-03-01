@@ -1,6 +1,8 @@
 package com.caferestaurant.orderingsystem.app.view;
 
 import com.caferestaurant.orderingsystem.app.R;
+import com.caferestaurant.orderingsystem.app.communication.CommunicationBase;
+import com.caferestaurant.orderingsystem.app.communication.JSONOnlyForSampleCommunication;
 
 import android.content.Context;
 import android.content.Intent;
@@ -36,7 +38,7 @@ public class ViewMainOrder extends ViewBase{
 		
 	}
 	
-	private void init(Context context)
+	private void init(final Context context)
 	{
 
 		this.innerView = this.getLayoutInflater().inflate(R.layout.mainorder_layout, this, false);
@@ -62,9 +64,22 @@ public class ViewMainOrder extends ViewBase{
 
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent();
-				intent.setAction(com.google.zxing.client.android.Intents.Scan.ACTION);
-				ViewMainOrder.this.getContext().startActivity(intent);
+				//Intent intent = new Intent();
+				//intent.setAction(com.google.zxing.client.android.Intents.Scan.ACTION);
+				//ViewMainOrder.this.getContext().startActivity(intent);
+				
+				// 下面的东西是作为通信的范例的
+				// 请不要注释前面的语句，那些是二维码
+				JSONOnlyForSampleCommunication comm = new 
+						JSONOnlyForSampleCommunication(context);
+				comm.communicate(new CommunicationBase.CommunicationCallBack() {
+					
+					@Override
+					public void response(int result, Object resData, Object cookie) {
+						int i = 0;
+						
+					}
+				}, null);
 				
 			}
 			
