@@ -39,6 +39,13 @@
 	                        android:layout_width="fill_parent"  
 	                        android:layout_height="fill_parent">
 	            </com.caferestaurant.orderingsystem.app.view.ViewShoppingCart>
+	            
+	            <com.caferestaurant.orderingsystem.app.view.ViewShoppingDetail
+	                        android:id="@+id/view5"
+	                        android:layout_width="fill_parent"  
+	                        android:layout_height="fill_parent">
+	            </com.caferestaurant.orderingsystem.app.view.ViewShoppingDetail>
+	            
 	  	        
 	        </FrameLayout>
 	  	    

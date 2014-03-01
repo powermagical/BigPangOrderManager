@@ -17,23 +17,92 @@
                 android:layout_marginRight="5.0dip" android:src="@drawable/goods_ico_delete" android:scaleType="center" 
                 android:layout_toLeftOf="@id/share_anim" android:layout_centerVertical="true" />
         </RelativeLayout>
-        <!-- 暂且放一个dummy在这里看效果 -->
-        <View android:id="@+id/shopping_detail_pager" android:persistentDrawingCache="animation" 
+        <!-- <ImageView android:id="@+id/shopping_main_picture" android:background="@drawable/weng8" 
+                android:layout_width="wrap_content" android:layout_height="400dip" android:scaleType="center" 
+                android:layout_centerVertical="true" /> -->
+        <ScrollView android:id="@+id/shopping_detail_pager" android:persistentDrawingCache="animation" 
             android:layout_width="fill_parent" android:layout_height="0.0dip" android:flipInterval="30" 
-            android:layout_weight="1.0" />
+            android:layout_weight="1.0" android:layout_marginTop="1.0dip">
+        <!-- <TextView android:gravity="left" android:layout_gravity="center_vertical" android:id="@+id/shopping_description" 
+                    android:layout_width="match_parent" android:layout_height="8000dip" 
+                    android:layout_marginLeft="3.0dip" android:singleLine="false"
+                    android:layout_marginRight="3.0dip" 
+                    android:text="测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字"/>
+        -->
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:src="@drawable/weng8" 
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" 
+                android:layout_centerVertical="true" />
+            
+            <TextView android:gravity="left" android:layout_gravity="center_vertical" android:id="@+id/shopping_description" 
+                    android:layout_width="match_parent" android:layout_height="wrap_content" 
+                    android:layout_marginLeft="3.0dip" android:singleLine="false"
+                    android:layout_marginRight="3.0dip" 
+                    android:text="测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字"/>
+			
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" 
+			    android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <TextView android:gravity="center" android:layout_gravity="center_vertical" android:id="@+id/shopping_price" 
+	                    android:layout_width="wrap_content" android:layout_height="20dip" android:layout_marginLeft="3.0dip" 
+	                    android:layout_marginRight="3.0dip" android:text="价格"/>
+	            <TextView android:textSize="16.0sp" android:gravity="center" android:id="@+id/shopping_price_value" android:layout_width="30.0dip"
+	                 android:layout_height="wrap_content" android:text="17"/>
+            </LinearLayout>
+            
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" 
+			    android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <TextView android:gravity="center" android:layout_gravity="center_vertical" android:id="@+id/shopping_price" 
+	                    android:layout_width="wrap_content" android:layout_height="20dip" android:layout_marginLeft="3.0dip" 
+	                    android:layout_marginRight="3.0dip" android:text="数量"/>
+				<ImageButton android:id="@+id/count_adjust_left" android:background="@drawable/count_adjust_left" 
+			    	android:layout_width="30.0dip" android:layout_height="wrap_content" />
+				<TextView android:textSize="16.0sp" android:textColor="@color/main_text_color" android:text="1"
+			    	android:gravity="center" android:id="@+id/count_adjust_count" android:background="@drawable/refund_box_fill" 
+			    	android:layout_width="30.0dip" android:layout_height="wrap_content" />
+				<ImageButton android:id="@+id/count_adjust_right" android:background="@drawable/count_adjust_right"
+			    	android:layout_width="30.0dip" android:layout_height="wrap_content" />
+			</LinearLayout>
+            <!-- 
+            一些说明
+            scrollview里面的子view的高度必须大于scrollview自身的高度才会产生滚动效果
+            由于scrollview中只能有一个子view，所以任务就是把这个子view的高度搞大
+            这样的话，除了自定义view以外，就只有利用现有的view了
+            我这里利用了竖方向的线性布局，然后里面扔了一堆保持原图片高度的imageview。
+            由于竖方向的线性布局必须包含所有图片，所以其高度就是所有图片高度的和
+            
+            
+            如果是自己做的话，最好就是自己写一个view
+            然后重写这个view的onlayout以及onmeasure
+            关于onlayout和onmeasure怎么写，网上自己看一下吧。比较复杂的
+            
+            基本上，onmeasure的作用就是计算出自身的宽度和高度，而onlayout是将自己调整到某个位置坐标上
+            框架将会先调用onmeasure，然后调用onlayout
+            在我们的情况下，主要的问题其实在onmeasure里面。onlayout是不需要弄的，只要调用父类的即可
+            
+            你去找一下onmeasure是怎么写的，或者看下我写的几个自定义view
+            这个问题我可以下次讲给你听
+             -->
+            
+            
+        </LinearLayout>
+        
+        </ScrollView>
+
+        <!-- 暂且放一个dummy在这里看效果 -->
+        <!--<ScrollView android:id="@+id/shopping_detail_pager" android:persistentDrawingCache="animation" 
+            android:layout_width="fill_parent" android:layout_height="0.0dip" android:flipInterval="30" 
+            android:layout_weight="1.0" android:background="#66000000">
+            <View android:id="@+id/shopping_detail_pager2" android:persistentDrawingCache="animation" 
+            	android:layout_width="match_parent" android:background="#ffffffff" android:layout_height="5000.0dip" />
+        </ScrollView> -->
+
         <!-- 这句话请不要删除<com.caferestaurant.orderingsystem.app.view.MyViewPager android:id="@+id/shopping_detail_pager" android:persistentDrawingCache="animation" android:layout_width="fill_parent" android:layout_height="0.0dip" android:flipInterval="30" android:layout_weight="1.0" /> -->
         <RelativeLayout android:background="@drawable/footer" android:paddingLeft="6.0dip" 
             android:paddingRight="6.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" 
             android:layout_marginTop="-5.0dip" >
-            <ImageView android:id="@+id/btn_like" android:layout_width="wrap_content" android:layout_height="wrap_content" 
-                android:src="@drawable/goods_btn_like" android:scaleType="fitXY" android:layout_alignParentLeft="true" 
-                android:layout_centerVertical="true" />
+
             <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" 
                 android:layout_centerInParent="true">
-                <TextView android:gravity="center" android:layout_gravity="center_vertical" android:id="@+id/btn_buy" 
-                    android:background="@drawable/go_to_buy_btn" android:layout_width="@dimen/shopping_detail_footer_round_btn_w" 
-                    android:layout_height="@dimen/shopping_detail_footer_round_btn_h" android:layout_marginLeft="3.0dip" 
-                    android:layout_marginRight="3.0dip" />
                 <TextView android:gravity="center" android:layout_gravity="center_vertical" android:id="@+id/btn_add_to_cart" 
                     android:background="@drawable/add_to_cart_btn" android:layout_width="@dimen/shopping_detail_footer_round_btn_w" 
                     android:layout_height="@dimen/shopping_detail_footer_round_btn_h" android:layout_marginLeft="3.0dip" 
@@ -50,9 +119,9 @@
     </LinearLayout>
     <ImageView android:id="@+id/anim_view" android:layout_width="fill_parent" android:layout_height="fill_parent" 
         android:scaleType="fitXY" />
-    <FrameLayout android:id="@+id/shopping_detail_guide" android:background="#66000000" android:visibility="visible" 
+    <!-- <FrameLayout android:id="@+id/shopping_detail_guide" android:background="#66000000" android:visibility="visible" 
         android:layout_width="fill_parent" android:layout_height="fill_parent">
         <ImageView android:layout_gravity="bottom|center" android:layout_width="wrap_content" android:layout_height="wrap_content" 
             android:layout_marginBottom="40.0dip" android:src="@drawable/shopping_detail_guide" />
-    </FrameLayout>
+    </FrameLayout> -->
 </FrameLayout>		
