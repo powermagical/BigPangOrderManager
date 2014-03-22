@@ -11,17 +11,29 @@ public class JSONOnlyForSampleCommunication extends JSONCommunicationBase{
 
 	
 	// 响应体常量
-	// 计数
-	private static String COUNT = "count";
+	// 推荐一览总体
+	private static String RECOMMEND = "recommend";
 	
-	// 婚姻状况全体
-	private static String MARRIAGE = "marriage";
+	// 某种推荐的标题
+	private static String RECOMMEND_TITLE = "recommend_title";
 	
-	// 婚姻状况显示名
-	private static String MARRIAGE_NAME = "marriage_name";
+	// 某种推荐的描述
+	private static String RECOMMEND_DESCRIPTION = "recommend_description";
 	
-	// 婚姻状况code
-	private static String MARRIAGE_CODE = "marriage_code";
+	// 某种推荐的排序
+	private static String SORT = "sort";
+	
+	// 某种推荐的所有商品组合的全体
+	private static String ITEMS = "items";
+	
+	// 商品介绍说明
+	private static String ITEM_DESCRIPTION = "item_description";
+	
+	// 商品图片URL
+	private static String ITEM_PICTURE = "item_picture";
+	
+	// 商品编号（1-5）
+	private static String ITEM_NO = "item_no";
 	
 	public JSONOnlyForSampleCommunication(Context ctx) {
 		super(ctx);
@@ -36,16 +48,26 @@ public class JSONOnlyForSampleCommunication extends JSONCommunicationBase{
 		
 		// 返回值中应该讲解析出来的数据放到某个数据结构中保存
 		// 但这里只是示例所以只返回了null
-			if (responseObj.getInt(COUNT) > 0)
+		JSONArray recommendArray = responseObj.optJSONArray(RECOMMEND);
+		
+		if (recommendArray != null)
+		{
+			for(int i = 0; i < recommendArray.length(); ++i)
 			{
-				JSONArray marriageArray = responseObj.getJSONArray(MARRIAGE);
-				for(int i = 0; i < responseObj.getInt(COUNT); ++i)
+				JSONObject oneRecommend = recommendArray.getJSONObject(i);
+				oneRecommend.getString(RECOMMEND_TITLE);
+				oneRecommend.getString(RECOMMEND_DESCRIPTION);
+				oneRecommend.getInt(SORT);
+				JSONArray itemArray = oneRecommend.getJSONArray(ITEMS);
+				for(int j = 0; j < itemArray.length(); ++j)
 				{
-					String cName = marriageArray.getJSONObject(i).getString(MARRIAGE_NAME);
-					String cID = marriageArray.getJSONObject(i).getString(MARRIAGE_CODE);
+					JSONObject item = itemArray.getJSONObject(j);
+					item.getString(ITEM_DESCRIPTION);
+					item.getString(ITEM_PICTURE);
+					item.getInt(ITEM_NO);
 				}
 			}
-		
+		}
 		
 		return null;
 	}
@@ -59,13 +81,13 @@ public class JSONOnlyForSampleCommunication extends JSONCommunicationBase{
 	@Override
 	protected String getModuleName()
 	{
-		return "common";
+		return "recommend";
 	}
 	
 	@Override
 	protected String getScreenName()
 	{
-		return "marriage";
+		return "recommend_list";
 	}
 	
 	@Override

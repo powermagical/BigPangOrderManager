@@ -110,8 +110,6 @@ public abstract class JSONCommunicationBase extends CommunicationBase{
 						Log.i("JSONCommunicationBase", "onSuccess ");
 						Object res = null;
 						
-						
-						
 						try
 						{
 							JSONObject resHead = arg0.getJSONObject(HEADER_PART_NAME);
@@ -119,8 +117,11 @@ public abstract class JSONCommunicationBase extends CommunicationBase{
 							
 							if (resCode == 0)
 							{
-								JSONObject resBody = arg0.getJSONObject(BODY_PART_NAME);
-								res = parseResponseBody(resBody);
+								JSONObject resBody = arg0.optJSONObject(BODY_PART_NAME);
+								if (resBody != null)
+								{
+									res = parseResponseBody(resBody);
+								}
 							}
 							else
 							{

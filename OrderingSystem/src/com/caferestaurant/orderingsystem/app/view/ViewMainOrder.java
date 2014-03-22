@@ -70,8 +70,7 @@ public class ViewMainOrder extends ViewBase{
 				
 				// 下面的东西是作为通信的范例的
 				// 请不要注释前面的语句，那些是二维码
-				JSONOnlyForSampleCommunication comm = new 
-						JSONOnlyForSampleCommunication(context);
+				JSONOnlyForSampleCommunication comm = new JSONOnlyForSampleCommunication(context);
 				comm.communicate(new CommunicationBase.CommunicationCallBack() {
 					
 					@Override

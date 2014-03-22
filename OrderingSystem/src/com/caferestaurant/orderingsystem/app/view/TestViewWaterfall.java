@@ -5,7 +5,6 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 import com.caferestaurant.orderingsystem.app.R;
-import com.caferestaurant.orderingsystem.app.activity.ShoppingDetailActivity;
 import com.caferestaurant.orderingsystem.app.util.ViewUtility;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -125,8 +124,8 @@ public class TestViewWaterfall extends ViewWaterfallBase{
 						"http://imgsrc.baidu.com/forum/pic/item/655e4590f603738dc00b8a62b31bb051f919ec89.jpg", iv, this.lsn);
 				iv.setOnClickListener(new OnClickListener() {
 						public void onClick(View v) {							
-							Intent intent = new Intent(TestViewWaterfall.this.getContext(), ShoppingDetailActivity.class);
-							TestViewWaterfall.this.getContext().startActivity(intent);							
+							//Intent intent = new Intent(TestViewWaterfall.this.getContext(), ShoppingDetailActivity.class);
+							//TestViewWaterfall.this.getContext().startActivity(intent);							
 						}
 					}
 				);
